@@ -1,13 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MoveAround.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NewBehaviourScript.js">
     <Files>
-      <File FileName="Assets/Levels/NewBehaviourScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MoveSimple.cs" Line="1" Column="1" />
       <File FileName="../RocketMouse/Assets/Scripts/MouseController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SmoothFollow.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Joystick.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MoveAround.js" Line="16" Column="31" />
+      <File FileName="Assets/Scripts/MoveAround.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FinishLineRenderer.js" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/NewBehaviourScript.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
