@@ -50,5 +50,7 @@
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -i:UnityEditor
-'Assets/Joystick.js'
+'Assets/Levels/NewBehaviourScript.js'
+'Assets/Scripts/Joystick.js'
+'Assets/Scripts/MoveAround.js'
 'Assets/Scripts/SmoothFollow.js'
