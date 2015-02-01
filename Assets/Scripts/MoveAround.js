@@ -6,6 +6,17 @@ var rotateSpeed : float = 3.0;
 var moveJoystick : Joystick;
 var rotateJoystick : Joystick;
 
+var originalPosition : Vector3;
+var originalRotation : Quaternion;
+
+
+function Awake() {
+	originalPosition = transform.position;
+	originalRotation = transform.rotation;
+
+}
+
+
 
 function Update () {
 
@@ -39,6 +50,11 @@ function joyStickInput (joystick : Joystick) {
 	return ( ( absJoyPos.x > absJoyPos.y) ? absJoyPos.x * xDirection : absJoyPos.y * yDirection);
 }
 
+function resetGame() {
+	// reset to original position
+	transform.position = originalPosition;
+	transform.rotation = originalRotation;
 
+}
 
 @script RequireComponent(CharacterController)

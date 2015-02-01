@@ -2,6 +2,7 @@
 
 static var gameRunning : boolean = false;
 
+
 var gameTimeAllowed : float = 20.0;
 var gameMessageFont : Font;
 
@@ -14,6 +15,10 @@ private var timedOut : boolean = false;
 private var gameTimeRemaining : float = gameTimeAllowed;
 
 private var playButtonText = "Play";
+
+var gameObjectsToReset : GameObject[];
+
+var fanReactionScript : FanReaction;
 
 
 
@@ -54,10 +59,6 @@ function OnGUI () {
 
 
 function Update () {
-	
-	if (GameController != null && !GameController.gameRunning)
-		return;
-
 	if (!gameRunning)
 		return;
 		
@@ -66,6 +67,10 @@ function Update () {
 	if (gameTimeRemaining <= 0) {
 		timedOut = true;
 		gameRunning = false;
+		
+		// play the sound of defeat
+		fanReactionScript.playSoundOfVictory(false);
+		
 	}
 }
 		
@@ -76,7 +81,13 @@ function MissionComplete() {
 	missionCompleted = true;
 	gameRunning = false;
 	
+	// play win sounds
+	
+	fanReactionScript.playSoundOfVictory(true);
+	
 	missionCompleteTime = gameTimeAllowed - gameTimeRemaining;
+	
+	
 			
 }	
 
@@ -90,6 +101,18 @@ function StartGame() {
 	// Change button text after initial run
 	playButtonText = "Play Again";
 
+	// Clean out any obstacles
+	var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+	for (var enemy : GameObject in enemies) {
+		Destroy ( enemy);
+	}
+
+	// Call all game reset methods
+	for (var gameObjectReciever : GameObject in gameObjectsToReset) {
+		gameObjectReciever.SendMessage("resetGame", null, SendMessageOptions.DontRequireReceiver);
+	
+	}
+	
 	// kick off the game
 	gameRunning = true;
 }

@@ -45,3 +45,10 @@ function Update () {
 	}
 
 }
+
+
+function resetGame () {
+	// reset to original state (no objects)
+	numObstaclesLaunched = 0;
+
+}
