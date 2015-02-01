@@ -3,11 +3,17 @@
 static var gameRunning : boolean = true;
 
 var gameTimeAllowed : float = 20.0;
+var gameMessageFont : Font;
+
+private var missionCompleted : boolean = false;
+private var missionCompleteTime : float = gameTimeAllowed;
 
 private var gameMessageLabel = "";
 private var gameMessageDisplay : Rect;
 private var timedOut : boolean = false;
 private var gameTimeRemaining : float = gameTimeAllowed;
+
+
 
 
 
@@ -18,11 +24,15 @@ function Awake () {
 
 
 function OnGUI () {
+	GUI.skin.font = gameMessageFont;
 	GUI.color = Color.yellow;
 	GUI.backgroundColor = Color.black;
 	
 	var text : String = "";
-	if (timedOut) {
+	if (missionCompleted) {
+		text = String.Format( "{0:00}:{1:00}", parseInt(missionCompleteTime /60.0), parseInt(missionCompleteTime % 60.0));
+		gameMessageLabel = "Mission Completed in: " + text;
+	}else if (timedOut) {
 		gameMessageLabel = "Time's up!!";
 	} else {
 		text = String.Format( "{0:00}:{1:00}", parseInt(gameTimeRemaining /60.0), parseInt(gameTimeRemaining % 60.0));
@@ -43,5 +53,15 @@ function Update () {
 		timedOut = true;
 		gameRunning = false;
 	}
-	
 }
+		
+function MissionComplete() {
+	if (!gameRunning)
+		return;
+	
+	missionCompleted = true;
+	gameRunning = false;
+	
+	missionCompleteTime = gameTimeAllowed - gameTimeRemaining;
+			
+}	
