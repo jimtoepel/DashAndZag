@@ -52,6 +52,8 @@
 -i:UnityEditor
 'Assets/Scripts/FinishLineDetection.js'
 'Assets/Scripts/FinishLineRenderer.js'
+'Assets/Scripts/GameController.js'
 'Assets/Scripts/Joystick.js'
 'Assets/Scripts/MoveAround.js'
+'Assets/Scripts/ObstacleLauncher.js'
 'Assets/Scripts/SmoothFollow.js'

@@ -50,7 +50,10 @@
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -i:UnityEditor
-'Assets/FinishLineRenderer.js'
+'Assets/Scripts/FinishLineDetection.js'
+'Assets/Scripts/FinishLineRenderer.js'
+'Assets/Scripts/GameController.js'
 'Assets/Scripts/Joystick.js'
 'Assets/Scripts/MoveAround.js'
+'Assets/Scripts/ObstacleLauncher.js'
 'Assets/Scripts/SmoothFollow.js'
