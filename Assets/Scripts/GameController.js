@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-static var gameRunning : boolean = true;
+static var gameRunning : boolean = false;
 
 var gameTimeAllowed : float = 20.0;
 var gameMessageFont : Font;
@@ -13,7 +13,7 @@ private var gameMessageDisplay : Rect;
 private var timedOut : boolean = false;
 private var gameTimeRemaining : float = gameTimeAllowed;
 
-
+private var playButtonText = "Play";
 
 
 
@@ -39,10 +39,24 @@ function OnGUI () {
 		gameMessageLabel = "Time: Left: " + text;
 	}
 	GUI.Box(gameMessageDisplay, gameMessageLabel);
+
+	// Add menu button
+	
+	if (!gameRunning) {
+		var xPos = Screen.width / 2 - 100;
+		var yPos = Screen.height / 2 + 100;
+		if (GUI.Button( new Rect (xPos, yPos, 200, 50), playButtonText) ) {
+			StartGame();
+		}
+	}
+
 }
 
 
 function Update () {
+	
+	if (GameController != null && !GameController.gameRunning)
+		return;
 
 	if (!gameRunning)
 		return;
@@ -65,3 +79,17 @@ function MissionComplete() {
 	missionCompleteTime = gameTimeAllowed - gameTimeRemaining;
 			
 }	
+
+
+function StartGame() {
+	// reset if starting a new game
+	gameTimeRemaining = gameTimeAllowed;
+	timedOut = false;
+	missionCompleted = false;
+	
+	// Change button text after initial run
+	playButtonText = "Play Again";
+
+	// kick off the game
+	gameRunning = true;
+}

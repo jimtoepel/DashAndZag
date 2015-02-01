@@ -18,6 +18,11 @@ function Start () {
 }
 
 function Update () {
+
+	if (GameController != null && !GameController.gameRunning)
+		return;
+
+
 	if ((numObstaclesLaunched < maxObstacles) && (Time.time > nextLaunch)) {
 	// set up the next launch time
 	nextLaunch = Time.time + launchInterval;

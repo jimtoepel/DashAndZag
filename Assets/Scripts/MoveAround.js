@@ -9,6 +9,10 @@ var rotateJoystick : Joystick;
 
 function Update () {
 
+	
+	if (GameController != null && !GameController.gameRunning)
+		return;
+
 	var controller : CharacterController = GetComponent(CharacterController);
 	
 	//rotate around y-axis
